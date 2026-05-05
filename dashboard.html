@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · Залиния сўровнома натижалари</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+  </div>
+
+  <!-- ============ LOGIN MODAL ============ -->
+  <div id="loginModal" class="login-modal">
+    <div class="login-card">
+      <div class="login-icon">🔒</div>
+      <h2 class="login-title">Махфий ҳудуд</h2>
+      <p class="login-subtitle">Dashboard'ни кўриш учун паролни киритинг</p>
+      <form id="loginForm" class="login-form">
+        <input
+          type="password"
+          id="dashPassword"
+          class="text-input"
+          placeholder="Паролингизни киритинг"
+          autocomplete="off"
+          required
+        />
+        <div class="login-error" id="loginError"></div>
+        <button type="submit" class="btn btn-primary login-btn">
+          Кириш →
+        </button>
+      </form>
+      <p class="login-hint">Парол билан муаммо бўлса администратор билан боғланинг</p>
+    </div>
+  </div>
+
+  <main class="dashboard-container hidden" id="dashboardMain">
+    <header class="dash-header">
+      <div>
+        <div class="header-badge">
+          <span class="badge-dot"></span>
+          <span>Тадқиқот натижалари</span>
+        </div>
+        <h1 class="dash-title">Залиния ҳудуди <span class="title-accent">уй-жой</span> тадқиқоти</h1>
+        <p class="dash-subtitle">Реал вақтда фойдаланувчи жавоблари статистикаси</p>
+      </div>
+      <div class="dash-actions">
+        <a href="index.html" class="btn btn-secondary">← Сўровномага</a>
+        <button id="refreshBtn" class="btn btn-primary">
+          <span id="refreshIcon">↻</span> Янгилаш
+        </button>
+      </div>
+    </header>
+
+    <!-- Yuklanmoqda -->
+    <div id="dashLoader" class="dash-loader">
+      <div class="loader-spinner"></div>
+      <p>Маълумотлар юкланмоқда...</p>
+    </div>
+
+    <!-- Bo'sh holat -->
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">📊</div>
+      <h2>Ҳозирча жавоблар йўқ</h2>
+      <p>Сўровномани одамларга тарқатинг, уларнинг жавоблари шу ерда пайдо бўлади</p>
+      <a href="index.html" class="btn btn-primary">Сўровномани очиш</a>
+    </div>
+
+    <!-- Asosiy kontent -->
+    <div id="dashContent" class="dash-content hidden">
+
+      <!-- Stat kartochkalar -->
+      <section class="stats-grid">
+        <div class="stat-card stat-primary">
+          <div class="stat-label">Жами жавоблар</div>
+          <div class="stat-value" id="statTotal">0</div>
+          <div class="stat-trend" id="statTotalTrend">📈 Тадқиқот давомида</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Бугун</div>
+          <div class="stat-value" id="statToday">0</div>
+          <div class="stat-trend">Бугунги жавоблар</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Залиниядан уй олганлар</div>
+          <div class="stat-value" id="statBought">0%</div>
+          <div class="stat-trend" id="statBoughtCount">0 та одам</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Телефон қолдирганлар</div>
+          <div class="stat-value" id="statContact">0%</div>
+          <div class="stat-trend" id="statContactCount">0 та лид</div>
+        </div>
+      </section>
+
+      <!-- Asosiy chartlar -->
+      <section class="charts-grid">
+        <div class="chart-card">
+          <h3 class="chart-title">Ёш бўйича тақсимот</h3>
+          <div class="chart-wrapper"><canvas id="chartAge"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Ойлик даромад</h3>
+          <div class="chart-wrapper"><canvas id="chartIncome"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Уй ҳолати афзаллиги</h3>
+          <p class="chart-subtitle">Каробка vs White house vs Тайёр</p>
+          <div class="chart-wrapper"><canvas id="chartHouseCondition"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Неча хонали хоҳлайди</h3>
+          <div class="chart-wrapper"><canvas id="chartRooms"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Бошланғич тўлов тайёр</h3>
+          <div class="chart-wrapper"><canvas id="chartDownPayment"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Максимал ойлик тўлов</h3>
+          <div class="chart-wrapper"><canvas id="chartMonthly"></canvas></div>
+        </div>
+
+        <div class="chart-card chart-card-wide">
+          <h3 class="chart-title">Уй танлаш омиллари</h3>
+          <p class="chart-subtitle">Энг муҳим 3 та омил</p>
+          <div class="chart-wrapper chart-wrapper-tall"><canvas id="chartFactors"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Уй олиш мотивацияси</h3>
+          <div class="chart-wrapper"><canvas id="chartMotivation"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Уй олиш режаси</h3>
+          <div class="chart-wrapper"><canvas id="chartTimeline"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Касблар</h3>
+          <div class="chart-wrapper"><canvas id="chartProfession"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Уй олиш мақсади</h3>
+          <div class="chart-wrapper"><canvas id="chartPurpose"></canvas></div>
+        </div>
+      </section>
+
+      <!-- HA tarmog'i statistikasi -->
+      <section class="charts-grid charts-grid-yes">
+        <div class="section-divider">
+          <h2>📍 Залиниядан уй олганлар ҳақида</h2>
+        </div>
+
+        <div class="chart-card chart-card-wide">
+          <h3 class="chart-title">Қайси лойиҳадан уй олинган</h3>
+          <div class="chart-wrapper chart-wrapper-tall"><canvas id="chartYesProject"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Олинган уй хоналари</h3>
+          <div class="chart-wrapper"><canvas id="chartYesRooms"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Квадрат метр нархи (млн сўм)</h3>
+          <div class="chart-wrapper"><canvas id="chartYesPricePerSqm"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Ойлик тўлов (млн сўм)</h3>
+          <div class="chart-wrapper"><canvas id="chartYesMonthlyPayment"></canvas></div>
+        </div>
+
+        <div class="chart-card chart-card-wide">
+          <h3 class="chart-title">Танлаш сабаблари</h3>
+          <div class="chart-wrapper chart-wrapper-tall"><canvas id="chartYesReasons"></canvas></div>
+        </div>
+      </section>
+
+      <!-- Ochiq javoblar -->
+      <section class="open-answers">
+        <h2 class="section-title">💬 Очиқ жавоблар ва изоҳлар</h2>
+        <div class="answers-tabs">
+          <button class="tab-btn active" data-tab="problems">Мижозлар муаммолари (Залиниядан олганлар)</button>
+          <button class="tab-btn" data-tab="comments">Умумий изоҳлар</button>
+        </div>
+        <div class="answers-list" id="problemsList"></div>
+        <div class="answers-list hidden" id="commentsList"></div>
+      </section>
+
+      <!-- Lidlar jadvali -->
+      <section class="recent-leads">
+        <h2 class="section-title">📞 Сўнгги лидлар (телефон қолдирганлар)</h2>
+        <div class="leads-table-wrapper">
+          <table class="leads-table" id="leadsTable">
+            <thead>
+              <tr>
+                <th>Сана</th>
+                <th>Исм</th>
+                <th>Телефон</th>
+                <th>Ёш</th>
+                <th>Даромад</th>
+                <th>Тармоқ</th>
+              </tr>
+            </thead>
+            <tbody id="leadsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 · Залиния ҳудуди уй-жой тадқиқоти dashboard</p>
+    </footer>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

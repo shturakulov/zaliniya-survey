@@ -1,0 +1,1448 @@
+/* ============================================
+   ZALNIYA SURVEY - QULAY/ISSIQ DIZAYN
+   Issiq beje + chuqur yashil + oltin aksent
+   ============================================ */
+
+:root {
+  /* Asosiy ranglar */
+  --bg-primary: #FAF6EE;
+  --bg-secondary: #F4ECDD;
+  --bg-card: #FFFCF5;
+  --bg-card-hover: #FFF8E8;
+
+  /* Aksentlar */
+  --primary: #2D5F4F;
+  --primary-dark: #1F4538;
+  --primary-light: #3D7A66;
+  --accent: #C8956D;
+  --accent-dark: #A67B5B;
+  --accent-light: #E5C9A8;
+
+  /* Matn */
+  --text-primary: #2C2826;
+  --text-secondary: #5C5048;
+  --text-muted: #8A7B70;
+
+  /* Border */
+  --border: #E8DFD0;
+  --border-strong: #D4C8B2;
+
+  /* Status */
+  --error: #C44536;
+  --success: #2D5F4F;
+
+  /* Soyalar */
+  --shadow-sm: 0 2px 8px rgba(45, 95, 79, 0.06);
+  --shadow-md: 0 8px 24px rgba(45, 95, 79, 0.08);
+  --shadow-lg: 0 20px 50px rgba(45, 95, 79, 0.12);
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 56px;
+}
+
+/* ============= RESET ============= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============= FON DEKORATSIYASI ============= */
+.bg-decoration {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.bg-circle-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+  animation: float 20s ease-in-out infinite;
+}
+
+.bg-circle-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #C5DBD0 0%, transparent 70%);
+  bottom: -150px;
+  left: -150px;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.05); }
+}
+
+.bg-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+}
+
+/* ============= CONTAINER ============= */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+}
+
+/* ============= HEADER ============= */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  animation: fadeInDown 0.8s ease;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.header-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.title-accent {
+  color: var(--primary);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.header-subtitle strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ============= PROGRESS ============= */
+.progress-wrapper {
+  margin-bottom: var(--space-lg);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+#progressPercent {
+  color: var(--primary);
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: var(--radius-full);
+  width: 4%;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ============= SAVOL KARTOCHKASI ============= */
+.survey-form {
+  position: relative;
+  min-height: 400px;
+}
+
+.question {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  animation: slideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.question.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-number {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-dark);
+  background: var(--accent-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.question-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.question-hint {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: var(--space-md);
+}
+
+/* ============= MATN KIRITISH ============= */
+.text-input,
+.textarea-input {
+  width: 100%;
+  padding: 16px 18px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.text-input::placeholder,
+.textarea-input::placeholder {
+  color: var(--text-muted);
+}
+
+.text-input:focus,
+.textarea-input:focus {
+  border-color: var(--primary);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 4px rgba(45, 95, 79, 0.08);
+}
+
+.textarea-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.other-input {
+  margin-top: var(--space-sm);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* HONEYPOT - bot tuzog'i, foydalanuvchiga ko'rinmaydi */
+.honeypot-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* ============= RADIO ============= */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-group-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .radio-group-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.radio-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.radio-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateX(2px);
+}
+
+.radio-card input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  margin-right: 14px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.radio-card input[type="radio"]:checked {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.radio-card input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: var(--bg-card);
+  border-radius: 50%;
+}
+
+.radio-card:has(input:checked) {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(45, 95, 79, 0.06) 0%, rgba(200, 149, 109, 0.04) 100%);
+  box-shadow: 0 4px 12px rgba(45, 95, 79, 0.1);
+}
+
+.radio-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.radio-label strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Katta variantlar (HA/YO'Q) */
+.radio-group-big {
+  gap: 16px;
+  margin-top: var(--space-md);
+}
+
+.radio-card-big {
+  padding: var(--space-lg) var(--space-md);
+  flex-direction: column;
+  text-align: center;
+  border-width: 2px;
+  min-height: 160px;
+  justify-content: center;
+}
+
+.radio-card-big input[type="radio"] {
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-card-big .radio-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.big-emoji {
+  font-size: 48px;
+  font-weight: 300;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.radio-yes .big-emoji {
+  color: var(--primary);
+}
+
+.radio-no .big-emoji {
+  color: var(--accent-dark);
+}
+
+.radio-card-big:has(input:checked) .big-emoji {
+  background: var(--primary);
+  color: var(--bg-card);
+  transform: scale(1.1);
+}
+
+.radio-no:has(input:checked) .big-emoji {
+  background: var(--accent-dark);
+}
+
+.big-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ============= CHECKBOX ============= */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checkbox-card {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkbox-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+.checkbox-card input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-strong);
+  border-radius: 6px;
+  margin-right: 12px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.checkbox-card input[type="checkbox"]:checked {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.checkbox-card input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--bg-card);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.checkbox-card:has(input:checked) {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(45, 95, 79, 0.06) 0%, rgba(200, 149, 109, 0.04) 100%);
+}
+
+.checkbox-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.checkbox-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ============= PRIVACY ============= */
+.privacy-box {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-light) 100%);
+  border-left: 4px solid var(--accent);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.privacy-box strong {
+  color: var(--primary-dark);
+}
+
+.checkbox-privacy {
+  background: var(--bg-secondary);
+  border-color: var(--border-strong);
+}
+
+/* ============= ERROR ============= */
+.error-message {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: 500;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.text-input.error,
+.textarea-input.error {
+  border-color: var(--error);
+  background: rgba(196, 69, 54, 0.04);
+}
+
+/* ============= TUGMALAR ============= */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: var(--space-lg);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 28px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+  min-width: 140px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--bg-card);
+  box-shadow: 0 6px 16px rgba(45, 95, 79, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(45, 95, 79, 0.35);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 2px solid var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+  flex: 1;
+  font-size: 16px;
+  padding: 18px 28px;
+}
+
+/* ============= LOADER ============= */
+.loader {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  animation: fadeIn 0.4s ease;
+}
+
+.loader-spinner {
+  width: 56px;
+  height: 56px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  margin: 0 auto var(--space-md);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* ============= MUVAFFAQIYAT ============= */
+.success-screen {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-icon {
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--bg-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0 auto var(--space-md);
+  box-shadow: 0 12px 32px rgba(45, 95, 79, 0.3);
+  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.success-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.success-text {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.success-meta {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ============= FOOTER ============= */
+.footer {
+  text-align: center;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ============= ANIMATSIYA ============= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 600px) {
+  .container {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .question {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  .form-actions {
+    flex-direction: row;
+    position: sticky;
+    bottom: 0;
+    background: var(--bg-primary);
+    padding: 12px 0 16px;
+    margin-top: var(--space-md);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-shadow: 0 -8px 16px -8px rgba(45, 36, 25, 0.08);
+    z-index: 50;
+    gap: 8px;
+  }
+
+  .btn {
+    width: auto;
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  /* Orqaga tugmasi kichikroq, Keyingisi katta bo'lsin */
+  #prevBtn {
+    flex: 0 0 auto;
+    min-width: 90px;
+  }
+
+  #nextBtn,
+  #submitBtn {
+    flex: 1;
+  }
+
+  .radio-card-big {
+    min-height: 130px;
+    padding: var(--space-md);
+  }
+
+  .big-emoji {
+    width: 56px;
+    height: 56px;
+    font-size: 36px;
+  }
+
+  .header-badge {
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   SMART KALKULYATOR - TAVSIYA
+   ============================================ */
+
+.recommendation-container {
+  margin-top: var(--space-lg);
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.recommendation {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.rec-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.rec-icon {
+  font-size: 56px;
+  margin-bottom: 8px;
+  display: inline-block;
+  animation: bounce 2s ease infinite;
+}
+
+.rec-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.rec-subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* ============= KARTOCHKALAR ============= */
+.rec-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 600px) {
+  .rec-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rec-card {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.rec-card-main {
+  background: linear-gradient(135deg, rgba(45, 95, 79, 0.08) 0%, rgba(200, 149, 109, 0.06) 100%);
+  border-color: var(--primary);
+}
+
+.rec-card-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.rec-card-value {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.rec-card-value-big {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--accent-dark);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.rec-card-value-big span {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.rec-card-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ============= TO'LOV REJASI ============= */
+.rec-section-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.rec-payment {
+  margin-bottom: var(--space-md);
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 700px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.payment-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.payment-item-highlight {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-color: var(--primary);
+  color: var(--bg-card);
+}
+
+.payment-item-highlight .payment-label,
+.payment-item-highlight .payment-percent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.payment-item-highlight .payment-value {
+  color: var(--bg-card);
+}
+
+.payment-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.payment-value {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.payment-value-big {
+  font-size: 28px;
+}
+
+.payment-value-big span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.payment-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  margin: 10px 0 6px;
+  overflow: hidden;
+}
+
+.payment-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+.payment-bar-remaining {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+.payment-percent {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ============= MASLAHATLAR ============= */
+.rec-advice {
+  margin-bottom: var(--space-md);
+}
+
+.advice-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent);
+}
+
+.advice-warning {
+  background: rgba(217, 164, 65, 0.08);
+  border-left-color: #D9A441;
+}
+
+.advice-success {
+  background: rgba(45, 95, 79, 0.08);
+  border-left-color: var(--primary);
+}
+
+.advice-info {
+  background: rgba(200, 149, 109, 0.08);
+  border-left-color: var(--accent);
+}
+
+.advice-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.advice-content {
+  flex: 1;
+}
+
+.advice-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.advice-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============= LOYIHALAR ============= */
+.rec-projects {
+  margin-bottom: var(--space-md);
+}
+
+.projects-empty {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.projects-empty p {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ============= CTA ============= */
+.rec-cta {
+  text-align: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.btn-cta {
+  display: inline-flex;
+  text-decoration: none;
+  padding: 18px 32px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+}
+
+.btn-cta:hover {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--brown) 100%);
+}
+
+.rec-cta-hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* HA tarmog'i uchun oddiy CTA */
+.rec-cta-only {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.rec-cta-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.rec-cta-only p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+/* ============= CONTACT FIELDS (ism + telefon bitta oynada) ============= */
+.contact-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.field-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+@media (min-width: 640px) {
+  .contact-fields {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+  .contact-field {
+    flex: 1;
+  }
+}
+
+/* ============= YANGI SMART TAVSIYA STILLARI (v4) ============= */
+.rec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-lg);
+  text-align: left;
+}
+
+.rec-card .rec-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.rec-card .rec-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.rec-card .rec-subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Stats grid */
+.rec-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 600px) {
+  .rec-summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rec-stat {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  text-align: center;
+}
+
+.rec-stat-highlight {
+  background: linear-gradient(135deg, #FFF3CD, #FFE8A8);
+  border-color: #E0B85C;
+}
+
+.rec-stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rec-stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (min-width: 600px) {
+  .rec-stat-value {
+    font-size: 17px;
+  }
+}
+
+/* To'lov kartochkasi */
+.rec-payment-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.rec-payment-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.rec-payment-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rec-payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light, rgba(0,0,0,0.06));
+  font-size: 14px;
+}
+
+.rec-payment-row:last-child {
+  border-bottom: none;
+}
+
+.rec-payment-row span {
+  color: var(--text-secondary);
+}
+
+.rec-payment-row strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.rec-payment-total strong {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+/* Maslahatlar */
+.rec-advice-section {
+  margin-top: var(--space-md);
+}
+
+.rec-advice-heading {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.rec-advice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rec-advice-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  align-items: flex-start;
+}
+
+.rec-advice-info {
+  background: #EBF3FA;
+  border-color: #B5D4F4;
+}
+
+.rec-advice-warning {
+  background: #FAEEDA;
+  border-color: #FAC775;
+}
+
+.rec-advice-success {
+  background: #EAF3DE;
+  border-color: #C0DD97;
+}
+
+.rec-advice-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.rec-advice-content {
+  flex: 1;
+}
+
+.rec-advice-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.rec-advice-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.rec-advice-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Disclaimer */
+.rec-disclaimer {
+  margin-top: var(--space-md);
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}

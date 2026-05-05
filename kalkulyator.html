@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ипотека/Расрочка калкулятори · Залиния</title>
+  <meta name="description" content="Уй учун турли тўлов вариантларни таққосланг. Расрочка, бана ипотекаси, имтиёзли ипотека." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/kalkulyator.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- Fon dekoratsiyasi -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="bg-grain"></div>
+  </div>
+
+  <main class="kalk-container">
+    <!-- Header -->
+    <header class="kalk-header">
+      <a href="index.html" class="back-link">← Сўровномага қайтиш</a>
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        <span>Бепул калкулятор</span>
+      </div>
+      <h1 class="kalk-title">Ипотека / Расрочка <span class="title-accent">калкулятори</span></h1>
+      <p class="kalk-subtitle">Уй сотиб олиш учун турли тўлов вариантларни таққосланг ва ўзингизга энг мосини танланг</p>
+    </header>
+
+    <div class="kalk-layout">
+      <!-- Chap tomon: Inputlar -->
+      <div class="kalk-inputs">
+        <div class="input-card">
+          <h2 class="input-section-title">📊 Маълумотларни киритинг</h2>
+
+          <!-- Uy narxi -->
+          <div class="input-group">
+            <div class="input-header">
+              <label for="housePrice" class="input-label">Уй нархи</label>
+              <div class="input-value-display"><span id="housePriceDisplay">500</span> млн сўм</div>
+            </div>
+            <input type="range" id="housePrice" class="range-input" min="100" max="3000" step="10" value="500" />
+            <div class="range-bounds">
+              <span>100 млн</span>
+              <span>3 000 млн</span>
+            </div>
+            <input type="number" id="housePriceInput" class="number-input" min="100" max="3000" step="10" value="500" />
+          </div>
+
+          <!-- Boshlang'ich to'lov -->
+          <div class="input-group">
+            <div class="input-header">
+              <label for="downPayment" class="input-label">Бошланғич тўлов</label>
+              <div class="input-value-display">
+                <span id="downPaymentDisplay">150</span> млн
+                <span class="input-percent">(<span id="downPaymentPercent">30</span>%)</span>
+              </div>
+            </div>
+            <input type="range" id="downPayment" class="range-input" min="0" max="500" step="5" value="150" />
+            <div class="range-bounds">
+              <span>0 млн</span>
+              <span id="downPaymentMax">500 млн</span>
+            </div>
+            <input type="number" id="downPaymentInput" class="number-input" min="0" step="5" value="150" />
+          </div>
+
+          <!-- To'lov muddati -->
+          <div class="input-group">
+            <div class="input-header">
+              <label for="termMonths" class="input-label">Тўлов муддати</label>
+              <div class="input-value-display"><span id="termDisplay">36</span> ой (<span id="termYears">3 йил</span>)</div>
+            </div>
+            <input type="range" id="termMonths" class="range-input" min="6" max="240" step="1" value="36" />
+            <div class="range-bounds">
+              <span>6 ой</span>
+              <span>20 йил</span>
+            </div>
+          </div>
+
+          <!-- Foiz turi -->
+          <div class="input-group">
+            <label class="input-label">Тўлов тури</label>
+            <div class="rate-options">
+              <label class="rate-card active" data-rate="0">
+                <input type="radio" name="rateType" value="0" checked />
+                <div class="rate-card-inner">
+                  <div class="rate-card-name">Расрочка</div>
+                  <div class="rate-card-rate">0% фоиз</div>
+                  <div class="rate-card-meta">Қурувчидан тўғридан-тўғри</div>
+                </div>
+              </label>
+
+              <label class="rate-card" data-rate="8">
+                <input type="radio" name="rateType" value="8" />
+                <div class="rate-card-inner">
+                  <div class="rate-card-name">Имтиёзли ипотека</div>
+                  <div class="rate-card-rate">8% / йил</div>
+                  <div class="rate-card-meta">Ёш оилалар, ҳаррий хизмат, доктор учун</div>
+                </div>
+              </label>
+
+              <label class="rate-card" data-rate="18">
+                <input type="radio" name="rateType" value="18" />
+                <div class="rate-card-inner">
+                  <div class="rate-card-name">Банк ипотекаси</div>
+                  <div class="rate-card-rate">18% / йил</div>
+                  <div class="rate-card-meta">Стандарт банк шартлари</div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O'ng tomon: Natija -->
+      <div class="kalk-results">
+        <div class="result-card">
+          <div class="result-main">
+            <div class="result-label">Ойлик тўлов</div>
+            <div class="result-value">
+              <span id="monthlyPayment">9.7</span>
+              <span class="result-unit">млн сўм</span>
+            </div>
+            <div class="result-trend" id="monthlyHint">36 ойга расрочка</div>
+          </div>
+
+          <div class="result-stats">
+            <div class="stat-row">
+              <div class="stat-label">Кредит суммаси</div>
+              <div class="stat-value" id="loanAmount">350 млн</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-label">Жами тўлайсиз</div>
+              <div class="stat-value" id="totalPaid">500 млн</div>
+            </div>
+            <div class="stat-row stat-row-highlight">
+              <div class="stat-label">Жами фоизлар</div>
+              <div class="stat-value" id="totalInterest">0 млн</div>
+            </div>
+          </div>
+
+          <!-- Visual chart -->
+          <div class="chart-section">
+            <h3 class="chart-title-small">Тўлов структураси</h3>
+            <div class="chart-wrapper-small">
+              <canvas id="paymentChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Comparison -->
+          <div class="comparison-section">
+            <h3 class="chart-title-small">📊 Бошқа вариантлар билан таққослаш</h3>
+            <div class="comparison-list" id="comparisonList">
+              <!-- JS bilan to'ldiriladi -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tushuntirish -->
+    <section class="info-section">
+      <div class="info-card">
+        <h3>💡 Тўлов турлари ҳақида қисқача</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <h4>Расрочка (0%)</h4>
+            <p>Қурувчи компаниядан бевосита олинади. Фоиз йўқ — лекин одатда муддат қисқа (12-36 ой) ва бошланғич тўлов катта (20-50%).</p>
+          </div>
+          <div class="info-item">
+            <h4>Имтиёзли ипотека (8%)</h4>
+            <p>Давлат томонидан қўллаб-қувватланган дастурлар: "Ёш оила", "Ҳарбий ипотека", соғлиқни сақлаш ходимлари. Махсус талаблар бор.</p>
+          </div>
+          <div class="info-item">
+            <h4>Банк ипотекаси (17.5-18%)</h4>
+            <p>Ҳар қандай банкда олиш мумкин, ҳужжатлар тўлиқ бўлса. Узоқ муддат (10-20 йил), кенг доира мижозлар учун.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 · Залиния ҳудуди уй-жой тадқиқоти</p>
+    </footer>
+  </main>
+
+  <script src="js/kalkulyator.js"></script>
+</body>
+</html>
