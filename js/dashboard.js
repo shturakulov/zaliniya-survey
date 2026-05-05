@@ -209,18 +209,11 @@ function generateDemoData() {
   const timelines = ['Shoshilinch', '1-2 yil', 'Yo\'q'];
   const professions = ['Tadbirkor', 'Davlat xizmatchisi', 'IT', 'Qurilish', 'Savdo', 'Tibbiyot', 'Ta\'lim'];
   const purposes = ['Yashash', 'Investitsiya', 'Bola-chaqaga', 'Ijaraga berish'];
-  const reasons = ['Narxi', 'Joylashuvi', 'Quruvchi ishonchliligi', 'To\'lov shartlari', 'Qurilish sifati'];
+  const reasons = ['Narxi', 'Joylashuvi', 'Quruvchi ishonchliligi', 'To\'lov shartlari', 'Aksiya va chegirmalar', 'Qurilish sifati'];
   const projects = ['Zuhal', 'Dargoh', 'Rail City', 'Nova House', 'Jahon House', 'Muborak TJM', 'Izmir (Global Avenue)', 'Orifon (Elite Building)', 'Tiffany', 'Shahriston', 'Afrosiyob TJM'];
   const pricesPerSqm = ['7-8 mln', '8-9 mln', '10-11 mln', '12 mln+'];
   const yesMonthlies = ['6-7 mln', '8-9 mln', '10-12 mln', '13 mln+'];
 
-  const sampleProblems = [
-    'Qurilish 6 oyga kechikdi, lekin oxir-oqibat tugatildi',
-    'Devorlardagi sifat masalalari bor edi, ta\'mirladim',
-    'Hujjatlarni olishda biroz sansolatma bor edi',
-    'Liftlar uzoq vaqtgacha ishlamadi',
-    'Issiqlik tizimi yaxshi ishlamayapti',
-  ];
   const sampleComments = [
     'Yaxshi loyiha bo\'lsa, narxi qulay bo\'lsa qiziqaman',
     'Ko\'proq ma\'lumot bering joylashuv haqida',
@@ -258,9 +251,6 @@ function generateDemoData() {
       const reasonCount = 2 + Math.floor(Math.random() * 2);
       const selectedReasons = [...reasons].sort(() => 0.5 - Math.random()).slice(0, reasonCount);
       entry.yes_reasons = selectedReasons.join(', ');
-      if (Math.random() > 0.5) {
-        entry.yes_problems = sampleProblems[Math.floor(Math.random() * sampleProblems.length)];
-      }
     } else {
       entry.no_houseCondition = houseConditions[Math.floor(Math.random() * houseConditions.length)];
       entry.no_rooms = rooms[Math.floor(Math.random() * rooms.length)];
@@ -511,60 +501,30 @@ function drawChart(canvasId, type, data, options = {}) {
 
 // ============= OCHIQ JAVOBLAR =============
 function renderOpenAnswers() {
-  // Muammolar (HA tarmoq)
-  const problems = allResponses
-    .filter(r => r.yes_problems && r.yes_problems.trim())
-    .map(r => ({
-      name: r.fullName,
-      date: r.timestamp,
-      text: r.yes_problems,
-    }));
-
-  const problemsList = document.getElementById('problemsList');
-  problemsList.innerHTML = problems.length > 0
-    ? problems.map(p => `
-        <div class="answer-item">
-          <div class="answer-meta">
-            <span><strong>${escapeHtml(p.name)}</strong></span>
-            <span>${formatDate(p.date)}</span>
-          </div>
-          <div class="answer-text">${escapeHtml(p.text)}</div>
-        </div>
-      `).join('')
-    : '<p class="answers-empty">Ҳозирча жавоблар йўқ</p>';
-
   // Izohlar
   const comments = allResponses
     .filter(r => r.comments && r.comments.trim())
     .map(r => ({
-      name: r.fullName,
+      name: r.fullName || 'Аноним',
       date: r.timestamp,
       text: r.comments,
     }));
 
   const commentsList = document.getElementById('commentsList');
-  commentsList.innerHTML = comments.length > 0
-    ? comments.map(c => `
-        <div class="answer-item">
-          <div class="answer-meta">
-            <span><strong>${escapeHtml(c.name)}</strong></span>
-            <span>${formatDate(c.date)}</span>
+  if (commentsList) {
+    commentsList.innerHTML = comments.length > 0
+      ? comments.map(c => `
+          <div class="answer-item">
+            <div class="answer-meta">
+              <span><strong>${escapeHtml(c.name)}</strong></span>
+              <span>${formatDate(c.date)}</span>
+            </div>
+            <div class="answer-text">${escapeHtml(c.text)}</div>
           </div>
-          <div class="answer-text">${escapeHtml(c.text)}</div>
-        </div>
-      `).join('')
-    : '<p class="answers-empty">Ҳозирча изоҳлар йўқ</p>';
-
-  // Tab switching
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tab = btn.dataset.tab;
-      problemsList.classList.toggle('hidden', tab !== 'problems');
-      commentsList.classList.toggle('hidden', tab !== 'comments');
-    });
-  });
+        `).join('')
+      : '<p class="answers-empty">Ҳозирча изоҳлар йўқ</p>';
+    commentsList.classList.remove('hidden');
+  }
 }
 
 // ============= LIDLAR JADVALI =============

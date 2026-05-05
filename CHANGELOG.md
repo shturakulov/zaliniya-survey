@@ -1,7 +1,65 @@
 # 📋 CHANGELOG — Zalniya Survey loyihasi
 
 > Bu fayl Claude bilan suhbat kontekstini saqlash uchun yaratilgan.
-> Keyingi suhbatlarda bu faylni Claude'ga yuklab, oldingi o'zgarishlarni tushunishi mumkin.
+
+---
+
+## 🗓️ 2026-05-05 — Aniqlashtirishlar (v5)
+
+### A. HA TARMOG'I O'ZGARISHLARI
+
+**HA-15 (Tanlash sabablari) — yangi variant qo'shildi:**
+- ✅ "Акция ва чегирмалари яхши эди" — qo'shildi
+
+**HA-16 (Muammolar) — olib tashlandi:**
+- ❌ "Уй олгандан кейин қандай муаммоларга дуч келдингиз?" — savol butunlay olib tashlandi
+- HA tarmog'i endi 5 ta savoldan iborat (avval 6 ta edi)
+
+### B. YO'Q TARMOG'I O'ZGARISHLARI
+
+**YO'Q-11 (Reja muddati) — sarlavha yangilandi:**
+- Eski: "Яқин 1-2 йил ичида уй олишни режалаштиряпсизми?"
+- Yangi: **"Уй олишни қачонга режалаштиряпсиз?"**
+- Variantlar ham qisqartirildi (Ҳа/Йўқ префiksi olib tashlandi)
+
+**YO'Q-14 (Uy holati) — variantlar tavsifi yangilandi:**
+- "White Box" → **"White Box — деворлар маляр ишларига тайёр ҳолатда"**
+- "Тайёр таъмирланган" → **"Тайёр таъмирланган (Подключ) — кўчиб кирсам бўлади"**
+
+### C. SMART KALKULYATOR — 36-60 OY FOIZSIZ RASROCHKA
+
+**Eng muhim yangilik!** Endi tavsiya quruvchilar standartiga moslashgan:
+
+- ✅ Quruvchilar uyni **faqat 36-60 oyga foizsiz** bo'lib to'lashga berishadi
+- ✅ Algoritm 3 holatni hisoblaydi:
+  - **Excellent** (≤ 36 oy) — foydalanuvchi imkoniyati katta, hatto qisqa muddat yetarli
+  - **Good** (36-60 oy) — mukammal moslik, standart rasrochka
+  - **Unfeasible** (> 60 oy) — **muammo!** Foydalanuvchining BT yoki oyligi yetmaydi
+- ✅ Imkonsiz holatda foydalanuvchiga aniq alternativalar ko'rsatiladi:
+  - "BT ni oshiring" yoki "Kichikroq uy tanlang" yoki "Oylikni X mln ga oshiring"
+- ✅ Mosligi belgisi (badge): "✓ Aъlo moslik", "✓ Standart rasrochka", "⚠️ Шартлар тўғриланиши керак"
+- ✅ To'lov kartochkasida eslatma: "Қурувчилар 36-60 ойга фоизсиз бўлиб тўлашга беришади"
+
+### D. DASHBOARD MOSLASHTIRILDI
+
+- ✅ "Мижозлар муаммолари" tab'i olib tashlandi (HA-16 olib tashlanganligi sabab)
+- ✅ Endi "Изоҳлар" qismi to'g'ridan-to'g'ri ko'rinadi (tab almashtirish kerak emas)
+- ✅ Demo data: `yes_problems` va `sampleProblems` olib tashlandi
+- ✅ Demo data: `Aksiya va chegirmalar` ham reasons massivida bor
+
+### E. GOOGLE SHEETS USTUNLARI (yangilangan)
+
+```
+timestamp	fullName	phone	age	gender	profession	professionOther
+maritalStatus	familySize	currentLiving	income	boughtZalniya	branch
+yes_projectName	yes_projectNameOther	yes_rooms	yes_pricePerSqm
+yes_pricePerSqmOther	yes_monthlyPayment	yes_monthlyPaymentOther
+yes_reasons	no_planTimeline	no_purpose	no_rooms
+no_houseCondition	no_factors	no_downPayment	no_monthlyPayment
+no_motivation	comments	userAgent	fillTimeSeconds	ipHash
+```
+
+**Olib tashlangan ustun:** `yes_problems` (eski Sheets'da qolaversa muammo emas)
 
 ---
 
