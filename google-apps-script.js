@@ -91,7 +91,17 @@ function doPost(e) {
     try {
       lock.waitLock(10000); // 10 sekundgacha kutadi
       const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-      const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      let headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+
+      // Yangi maydonlar kelsa — Sheets'ga avtomatik ustun qo'shish
+      const skipFields = ['timestamp', 'ipHash', 'origin'];
+      Object.keys(clean).forEach(key => {
+        if (!skipFields.includes(key) && !headers.includes(key)) {
+          headers.push(key);
+          sheet.getRange(1, headers.length).setValue(key);
+        }
+      });
+
       const row = headers.map(h => {
         if (h === 'timestamp') return new Date();
         if (h === 'ipHash') return uaHash;
