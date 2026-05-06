@@ -163,12 +163,12 @@ function generateAdvice(rec, answers, totalPrice, remaining) {
     });
   }
 
-  // 3. Tezda olish
-  if (answers.no_planTimeline === 'Shoshilinch') {
+  // 3. Tezda olish (yangi: "Tayyor" yoki "Yaqin oylar" bo'lsa shoshilinch hisoblanadi)
+  if (answers.no_planTimeline === 'Tayyor, tanlayapman' || answers.no_planTimeline === 'Yaqin oylar') {
     rec.advice.push({
       type: 'warning', icon: '🚀',
       title: "Тез ҳаракат қилиш керак",
-      text: `Сиз 3-6 ой ичида уй олишни режалаштирган экансиз. <strong>Тайёр ёки деярли тайёр уйларга</strong> эътибор беринг. Каробка уй учун таъмир 3-4 ой қўшимча кетади — бу сизнинг муддатингизга мос келмайди.`,
+      text: `Сиз яқин ойларда уй олишни режалаштирган экансиз. <strong>Тайёр ёки деярли тайёр уйларга</strong> эътибор беринг. Каробка уй учун таъмир 3-4 ой қўшимча кетади — бу сизнинг муддатингизга мос келмайди.`,
     });
   }
 

@@ -180,11 +180,23 @@ function validateCurrentQuestion() {
         break;
       }
     }
-    // Checkbox uchun (privacy)
+    // Checkbox uchun
     else if (input.type === 'checkbox') {
-      if (!input.checked) {
-        showError(question, 'Илтимос, шартларга розилик беринг');
-        valid = false;
+      // Agar checkbox guruh bo'lsa (shu nomdagi checkbox'lar bir nechta) - kamida 1 ta belgilanishi kerak
+      const sameNameCheckboxes = question.querySelectorAll(`input[type="checkbox"][name="${input.name}"]`);
+      if (sameNameCheckboxes.length > 1) {
+        const anyChecked = Array.from(sameNameCheckboxes).some(cb => cb.checked);
+        if (!anyChecked) {
+          showError(question, 'Илтимос, камида биттасини танланг');
+          valid = false;
+        }
+        break; // guruhni 1 marta tekshirib, chiqib ketamiz
+      } else {
+        // Yagona checkbox (privacy va h.k.)
+        if (!input.checked) {
+          showError(question, 'Илтимос, белгиланг');
+          valid = false;
+        }
       }
     }
     // Matn uchun

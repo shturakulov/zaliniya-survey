@@ -4,6 +4,52 @@
 
 ---
 
+## 🗓️ 2026-05-06 — Validatsiya va variantlar yaxshilashi (v7)
+
+### A. YO'Q-11 (Reja muddati) — yangi variantlar
+
+**Eski variantlar (faqat vaqt muddati):**
+- ❌ Шошилинч (3-6 ой ичида)
+- ❌ 1-2 йил ичида
+- ❌ Ҳозирча режалаштирмаяпман
+
+**Yangi variantlar (xohish darajasi va vaqtni birlashtirgan):**
+- ✅ **Тайёрман** — мос вариант топилса, дарҳол оламан *(eng issiq lid)*
+- ✅ **Яқин ойларда** олмоқчиман — пул йиғяпман *(aktiv qidiruvda)*
+- ✅ **1-2 йил ичида** — режамда бор *(o'rta-uzoq muddat)*
+- ✅ **Ўрганиб юрибман** — ҳозирча шошмаяпман *(faqat tadqiqot)*
+
+**Sabab:** Eski variantlar faqat vaqtni so'rardi, lekin foydalanuvchining **xohish darajasi va psixologik tayyorgarligi** muhim. Yangi variantlar sotuvchilar uchun ham qulayroq — kim issiq lid, kim sovuq darrov ko'rinadi.
+
+### B. VALIDATSIYA — barcha savollar majburiy (2 ta istisno bilan)
+
+**Endi quyidagilardan tashqari hamma savol majburiy:**
+- ✗ **Contact (ism + telefon)** — ixtiyoriy (foydalanuvchi xohlasa qoldiradi)
+- ✗ **23-NO (savollari)** — ixtiyoriy (textarea, foydalanuvchini majburlamasin)
+- ✗ **F1 (final-2, izoh)** — ixtiyoriy
+
+**Majburiy savollar (foydalanuvchi to'ldirmasdan o'ta olmaydi):**
+- ✓ Tarmoq ajratuvchi (boughtZalniya)
+- ✓ Barcha demografik savollar (yosh, jins, kasb, oilaviy holat, oila a'zolari, hudud, yashash joyi, daromad)
+- ✓ HA tarmog'idagi 5 ta savol (loyiha, xonalar, m² narxi, oylik, sabablar)
+- ✓ YO'Q tarmog'idagi 9 ta savol (reja, maqsad, xonalar, holati, faktorlar, BT, oylik, motivatsiya, ofis)
+
+**Texnik:**
+- 13 ta `required` atributi qo'shildi (HA 5 + NO 8)
+- `validateCurrentQuestion` funksiyasi takomillashtirildi:
+  - Checkbox guruh uchun: kamida 1 ta tanlash kerak (ilgari faqat birinchi checkbox tekshirilardi)
+- Foydalanuvchi savol javobsiz qoldirsa, "Илтимос, биттасини танланг" yoki "Илтимос, камида биттасини танланг" xato xabari ko'rinadi va keyingi savolga o'ta olmaydi
+
+### C. SMART KALKULYATOR yangi planTimeline qiymatlariga moslangan
+
+- "Тайёрман" yoki "Яқин ойларда" → "Тез ҳаракат қилиш керак" maslahati chiqadi
+
+### D. DASHBOARD DEMO
+
+- `timelines` massivi yangi 4 ta variantga moslandi
+
+---
+
 ## 🗓️ 2026-05-05 — Hudud va yangi YO'Q savollari (v6)
 
 ### A. DEMOGRAFIYAGA YANGI SAVOL: "QAYERDANSIZ?"

@@ -226,7 +226,7 @@
         <h2 class="question-title">Қайси лойиҳадан уй олдингиз?</h2>
         <p class="question-hint">Биттасини танланг</p>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="yes_projectName" value="Zuhal" /><span class="radio-label">Zuhal</span></label>
+          <label class="radio-card"><input type="radio" name="yes_projectName" value="Zuhal" required /><span class="radio-label">Zuhal</span></label>
           <label class="radio-card"><input type="radio" name="yes_projectName" value="Dargoh" /><span class="radio-label">Dargoh</span></label>
           <label class="radio-card"><input type="radio" name="yes_projectName" value="Rail City" /><span class="radio-label">Rail City</span></label>
           <label class="radio-card"><input type="radio" name="yes_projectName" value="Nova House" /><span class="radio-label">Nova House</span></label>
@@ -247,7 +247,7 @@
         <span class="question-number">12</span>
         <h2 class="question-title">Неча хонали уй олдингиз?</h2>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="yes_rooms" value="1" /><span class="radio-label">1 хонали</span></label>
+          <label class="radio-card"><input type="radio" name="yes_rooms" value="1" required /><span class="radio-label">1 хонали</span></label>
           <label class="radio-card"><input type="radio" name="yes_rooms" value="2" /><span class="radio-label">2 хонали</span></label>
           <label class="radio-card"><input type="radio" name="yes_rooms" value="3" /><span class="radio-label">3 хонали</span></label>
           <label class="radio-card"><input type="radio" name="yes_rooms" value="4+" /><span class="radio-label">4 ва ундан кўп</span></label>
@@ -260,7 +260,7 @@
         <h2 class="question-title">Квадрат метр нархини қанчадан олдингиз?</h2>
         <p class="question-hint">Млн сўмда (1 м² учун)</p>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="yes_pricePerSqm" value="7-8 mln" /><span class="radio-label">7–8 млн</span></label>
+          <label class="radio-card"><input type="radio" name="yes_pricePerSqm" value="7-8 mln" required /><span class="radio-label">7–8 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_pricePerSqm" value="8-9 mln" /><span class="radio-label">8–9 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_pricePerSqm" value="10-11 mln" /><span class="radio-label">10–11 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_pricePerSqm" value="12 mln+" /><span class="radio-label">12 млн дан юқори</span></label>
@@ -275,7 +275,7 @@
         <h2 class="question-title">Қанча ойлик тўлов тўлаяпсиз?</h2>
         <p class="question-hint">Млн сўмда (ҳар ой)</p>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="yes_monthlyPayment" value="6-7 mln" /><span class="radio-label">6–7 млн</span></label>
+          <label class="radio-card"><input type="radio" name="yes_monthlyPayment" value="6-7 mln" required /><span class="radio-label">6–7 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_monthlyPayment" value="8-9 mln" /><span class="radio-label">8–9 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_monthlyPayment" value="10-12 mln" /><span class="radio-label">10–12 млн</span></label>
           <label class="radio-card"><input type="radio" name="yes_monthlyPayment" value="13 mln+" /><span class="radio-label">13 млн дан юқори</span></label>
@@ -290,7 +290,7 @@
         <h2 class="question-title">Нима сабабдан айнан ўша лойиҳани танладингиз?</h2>
         <p class="question-hint">Бир нечтасини танлаш мумкин</p>
         <div class="checkbox-group">
-          <label class="checkbox-card"><input type="checkbox" name="yes_reasons" value="Narxi" /><span class="checkbox-label">Нархи қулай эди</span></label>
+          <label class="checkbox-card"><input type="checkbox" name="yes_reasons" value="Narxi" required /><span class="checkbox-label">Нархи қулай эди</span></label>
           <label class="checkbox-card"><input type="checkbox" name="yes_reasons" value="Joylashuvi" /><span class="checkbox-label">Жойлашуви яхши</span></label>
           <label class="checkbox-card"><input type="checkbox" name="yes_reasons" value="Quruvchi ishonchliligi" /><span class="checkbox-label">Қурувчининг ишончлилиги</span></label>
           <label class="checkbox-card"><input type="checkbox" name="yes_reasons" value="Tayyor uy" /><span class="checkbox-label">Тайёр уй эди</span></label>
@@ -310,9 +310,10 @@
         <span class="question-number">11</span>
         <h2 class="question-title">Уй олишни қачонга режалаштиряпсиз?</h2>
         <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_planTimeline" value="Shoshilinch" /><span class="radio-label">Шошилинч (3-6 ой ичида)</span></label>
-          <label class="radio-card"><input type="radio" name="no_planTimeline" value="1-2 yil" /><span class="radio-label">1-2 йил ичида</span></label>
-          <label class="radio-card"><input type="radio" name="no_planTimeline" value="Yo'q" /><span class="radio-label">Ҳозирча режалаштирмаяпман</span></label>
+          <label class="radio-card"><input type="radio" name="no_planTimeline" value="Tayyor, tanlayapman" required /><span class="radio-label"><strong>Тайёрман</strong> — мос вариант топилса, дарҳол оламан</span></label>
+          <label class="radio-card"><input type="radio" name="no_planTimeline" value="Yaqin oylar" /><span class="radio-label"><strong>Яқин ойларда</strong> олмоқчиман — пул йиғяпман</span></label>
+          <label class="radio-card"><input type="radio" name="no_planTimeline" value="1-2 yil" /><span class="radio-label"><strong>1-2 йил ичида</strong> — режамда бор</span></label>
+          <label class="radio-card"><input type="radio" name="no_planTimeline" value="O'rganib yuribman" /><span class="radio-label"><strong>Ўрганиб юрибман</strong> — ҳозирча шошмаяпман</span></label>
         </div>
       </div>
 
@@ -321,7 +322,7 @@
         <span class="question-number">12</span>
         <h2 class="question-title">Уй олишдан асосий мақсадингиз нима?</h2>
         <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_purpose" value="Yashash" /><span class="radio-label">Ўзим яшаш учун</span></label>
+          <label class="radio-card"><input type="radio" name="no_purpose" value="Yashash" required /><span class="radio-label">Ўзим яшаш учун</span></label>
           <label class="radio-card"><input type="radio" name="no_purpose" value="Investitsiya" /><span class="radio-label">Инвестиция сифатида</span></label>
           <label class="radio-card"><input type="radio" name="no_purpose" value="Bola-chaqaga" /><span class="radio-label">Бола-чақага / фарзандларимга</span></label>
           <label class="radio-card"><input type="radio" name="no_purpose" value="Ijaraga berish" /><span class="radio-label">Ижарага бериш учун</span></label>
@@ -334,7 +335,7 @@
         <span class="question-number">13</span>
         <h2 class="question-title">Неча хонали хонадон керак?</h2>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="no_rooms" value="1" /><span class="radio-label">1 хонали</span></label>
+          <label class="radio-card"><input type="radio" name="no_rooms" value="1" required /><span class="radio-label">1 хонали</span></label>
           <label class="radio-card"><input type="radio" name="no_rooms" value="2" /><span class="radio-label">2 хонали</span></label>
           <label class="radio-card"><input type="radio" name="no_rooms" value="3" /><span class="radio-label">3 хонали</span></label>
           <label class="radio-card"><input type="radio" name="no_rooms" value="4+" /><span class="radio-label">4 ва ундан кўп</span></label>
@@ -346,7 +347,7 @@
         <span class="question-number">14</span>
         <h2 class="question-title">Қандай ҳолатдаги уй кўпроқ қизиқтиради?</h2>
         <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_houseCondition" value="Karobka" /><span class="radio-label"><strong>Каробка</strong> — ўзим таъмирлайман, нархи арзонроқ</span></label>
+          <label class="radio-card"><input type="radio" name="no_houseCondition" value="Karobka" required /><span class="radio-label"><strong>Каробка</strong> — ўзим таъмирлайман, нархи арзонроқ</span></label>
           <label class="radio-card"><input type="radio" name="no_houseCondition" value="White Box" /><span class="radio-label"><strong>White Box</strong> — деворлар маляр ишларига тайёр ҳолатда</span></label>
           <label class="radio-card"><input type="radio" name="no_houseCondition" value="Tayyor ta'mirlangan" /><span class="radio-label"><strong>Тайёр таъмирланган (Подключ)</strong> — кўчиб кирсам бўлади</span></label>
         </div>
@@ -358,7 +359,7 @@
         <h2 class="question-title">Уйни танлашда энг муҳим омиллар?</h2>
         <p class="question-hint">Максимум 3 та танланг</p>
         <div class="checkbox-group" data-max="3">
-          <label class="checkbox-card"><input type="checkbox" name="no_factors" value="Narx" /><span class="checkbox-label">Нарх</span></label>
+          <label class="checkbox-card"><input type="checkbox" name="no_factors" value="Narx" required /><span class="checkbox-label">Нарх</span></label>
           <label class="checkbox-card"><input type="checkbox" name="no_factors" value="Joylashuv" /><span class="checkbox-label">Жойлашув</span></label>
           <label class="checkbox-card"><input type="checkbox" name="no_factors" value="Quruvchi ishonchliligi" /><span class="checkbox-label">Қурувчи ишончлилиги</span></label>
           <label class="checkbox-card"><input type="checkbox" name="no_factors" value="Infratuzilma" /><span class="checkbox-label">Инфратузилма (мактаб, боғча, дўкон ва ҳ.к.)</span></label>
@@ -371,7 +372,7 @@
         <span class="question-number">17</span>
         <h2 class="question-title">Бошланғич тўлов учун ҳозир қанча пулингиз тайёр?</h2>
         <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_downPayment" value="50 mln gacha" /><span class="radio-label">50 млн сўмгача</span></label>
+          <label class="radio-card"><input type="radio" name="no_downPayment" value="50 mln gacha" required /><span class="radio-label">50 млн сўмгача</span></label>
           <label class="radio-card"><input type="radio" name="no_downPayment" value="50-100 mln" /><span class="radio-label">50 – 100 млн сўм</span></label>
           <label class="radio-card"><input type="radio" name="no_downPayment" value="100-150 mln" /><span class="radio-label">100 – 150 млн сўм</span></label>
           <label class="radio-card"><input type="radio" name="no_downPayment" value="150-200 mln" /><span class="radio-label">150 – 200 млн сўм</span></label>
@@ -385,7 +386,7 @@
         <h2 class="question-title">Максимал ойлик тўлов қанча бўлиши мумкин?</h2>
         <p class="question-hint">Диққат билан ўқиб танланг</p>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="10-11 mln" /><span class="radio-label">10 – 11 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="10-11 mln" required /><span class="radio-label">10 – 11 млн сўм</span></label>
           <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="9 mln" /><span class="radio-label">9 млн сўм</span></label>
           <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="6-7 mln" /><span class="radio-label">6 – 7 млн сўм</span></label>
           <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="8 mln" /><span class="radio-label">8 млн сўм</span></label>
@@ -399,7 +400,7 @@
         <span class="question-number">21</span>
         <h2 class="question-title">Сизни уй олишга нима ундайди?</h2>
         <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_motivation" value="Ijara" /><span class="radio-label">Ижара</span></label>
+          <label class="radio-card"><input type="radio" name="no_motivation" value="Ijara" required /><span class="radio-label">Ижара</span></label>
           <label class="radio-card"><input type="radio" name="no_motivation" value="Investitsiya" /><span class="radio-label">Инвестиция</span></label>
           <label class="radio-card"><input type="radio" name="no_motivation" value="Katta oilamiz" /><span class="radio-label">Катта оиламиз</span></label>
         </div>
@@ -410,7 +411,7 @@
         <span class="question-number">22</span>
         <h2 class="question-title">Уй олиш мақсадида қурилиш офисларига борганмисиз?</h2>
         <div class="radio-group radio-group-2">
-          <label class="radio-card"><input type="radio" name="no_visitedOffice" value="Ha" /><span class="radio-label">Ҳа, борганман</span></label>
+          <label class="radio-card"><input type="radio" name="no_visitedOffice" value="Ha" required /><span class="radio-label">Ҳа, борганман</span></label>
           <label class="radio-card"><input type="radio" name="no_visitedOffice" value="Yo'q" /><span class="radio-label">Йўқ, бормаганман</span></label>
         </div>
       </div>

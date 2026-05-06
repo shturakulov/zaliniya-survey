@@ -206,7 +206,7 @@ function generateDemoData() {
   const monthlies = ['6-7 mln', '8 mln', '9 mln', '10-11 mln', '12-14 mln', '15 mln+'];
   const factors = ['Narx', 'Joylashuv', 'Quruvchi ishonchliligi', 'Infratuzilma', 'To\'lov shartlari'];
   const motivations = ['Ijara', 'Investitsiya', 'Katta oilamiz'];
-  const timelines = ['Shoshilinch', '1-2 yil', 'Yo\'q'];
+  const timelines = ['Tayyor, tanlayapman', 'Yaqin oylar', '1-2 yil', 'O\'rganib yuribman'];
   const professions = ['Tadbirkor', 'Davlat xizmatchisi', 'IT', 'Qurilish', 'Savdo', 'Tibbiyot', 'Ta\'lim'];
   const purposes = ['Yashash', 'Investitsiya', 'Bola-chaqaga', 'Ijaraga berish'];
   const reasons = ['Narxi', 'Joylashuvi', 'Quruvchi ishonchliligi', 'To\'lov shartlari', 'Aksiya va chegirmalar', 'Qurilish sifati'];
