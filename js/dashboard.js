@@ -377,6 +377,15 @@ function renderCharts() {
   // 15. Maqsad
   drawChart('chartPurpose', 'pie', countBy('no_purpose'), { legendPosition: 'right' });
 
+  // 15b. Ofisga borgan/bormagan
+  drawChart('chartVisitedOffice', 'doughnut', countBy('no_visitedOffice'), {
+    legendPosition: 'right',
+    multiColor: true,
+  });
+
+  // 15c. Haridor savollari (erkin matn — ro'yxat ko'rinishida)
+  renderTextList('questionsList', 'no_questions');
+
   // HA TARMOG'I
   // 16. Loyihalar (qaysi loyihadan uy olingan)
   drawChart('chartYesProject', 'bar', countBy('yes_projectName'), {
@@ -545,6 +554,29 @@ function renderOpenAnswers() {
       : '<p class="answers-empty">Ҳозирча изоҳлар йўқ</p>';
     commentsList.classList.remove('hidden');
   }
+}
+
+function renderTextList(elId, field) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const items = allResponses
+    .filter(r => r[field] && String(r[field]).trim())
+    .map(r => ({
+      name: r.fullName || 'Аноним',
+      date: r.timestamp,
+      text: String(r[field]).trim(),
+    }));
+  el.innerHTML = items.length > 0
+    ? items.map(c => `
+        <div class="answer-item">
+          <div class="answer-meta">
+            <span><strong>${escapeHtml(c.name)}</strong></span>
+            <span>${formatDate(c.date)}</span>
+          </div>
+          <div class="answer-text">${escapeHtml(c.text)}</div>
+        </div>
+      `).join('')
+    : '<p class="answers-empty">Ҳозирча саволлар йўқ</p>';
 }
 
 // ============= LIDLAR JADVALI =============
