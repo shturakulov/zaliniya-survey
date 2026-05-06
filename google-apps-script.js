@@ -275,6 +275,41 @@ function logSecurityEvent(msg) {
   } catch (e) {}
 }
 
+// ============= SHEETS USTUNLARINI TEKSHIRISH VA QO'SHISH =============
+// Bu funksiyani bir marta qo'lda ishga tushiring: "ensureHeaders" tanlab Run bosing
+function ensureHeaders() {
+  const REQUIRED_HEADERS = [
+    'timestamp', 'fullName', 'phone', 'age', 'gender',
+    'profession', 'professionOther', 'maritalStatus', 'familySize',
+    'currentLiving', 'income', 'region',
+    'boughtZalniya', 'branch',
+    'yes_projectName', 'yes_projectNameOther', 'yes_rooms',
+    'yes_pricePerSqm', 'yes_pricePerSqmOther',
+    'yes_monthlyPayment', 'yes_monthlyPaymentOther',
+    'yes_reasons', 'yes_problems',
+    'no_planTimeline', 'no_purpose', 'no_rooms', 'no_houseCondition',
+    'no_factors', 'no_downPayment', 'no_monthlyPayment', 'no_motivation',
+    'comments', 'userAgent', 'fillTimeSeconds', 'ipHash'
+  ];
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const existing = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
+
+  let added = 0;
+  REQUIRED_HEADERS.forEach(h => {
+    if (!existing.includes(h)) {
+      existing.push(h);
+      sheet.getRange(1, existing.length).setValue(h);
+      added++;
+    }
+  });
+
+  Logger.log(added > 0
+    ? '✅ ' + added + ' ta yangi ustun qo\'shildi: ' + REQUIRED_HEADERS.filter(h => !sheet.getRange(1, 1, 1, sheet.getLastColumn() - added).getValues()[0].includes(h)).join(', ')
+    : '✅ Barcha ustunlar mavjud, hech narsa o\'zgarmadi'
+  );
+}
+
 // ============= TEST FUNKSIYASI =============
 // Apps Script editor'da "runTest" tanlab Run bosing
 function runTest() {
