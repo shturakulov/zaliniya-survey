@@ -4,6 +4,80 @@
 
 ---
 
+## 🗓️ 2026-05-05 — Hudud va yangi YO'Q savollari (v6)
+
+### A. DEMOGRAFIYAGA YANGI SAVOL: "QAYERDANSIZ?"
+
+- ✅ Demografik savollar qatoriga **"Қаердансиз?"** savoli qo'shildi (region)
+- ✅ Variantlar: Samarqand viloyatining **14 ta tumani** + **2 ta shahri** + Boshqa (qo'lda)
+- ✅ Joylashuv: jinsdan keyin (ya'ni 8-savol o'rniga turadi)
+
+**Variantlar ro'yxati:**
+- Samarqand shahri, Kattaqo'rg'on shahri (shaharlar)
+- Bulung'ur, Jomboy, Ishtixon, Kattaqo'rg'on, Narpay, Nurobod, Oqdaryo, Payariq, Pastdarg'om, Paxtachi, Samarqand, Toyloq, Urgut, Qo'shrabot tumanlari
+- Boshqa (qo'lda yoziladigan)
+
+### B. YO'Q TARMOG'IGA 2 TA YANGI SAVOL
+
+**22-NO (no_visitedOffice):**
+- "Уй олиш мақсадида қурилиш офисларига борганмисиз?"
+- Variantlar: Ҳа / Йўқ
+- Joylashuv: motivatsiyadan keyin, demografiyadan oldin
+
+**23-NO (no_questions):**
+- "Уй харид қилишдан олдин қандай саволларга жавоб топишни хоҳлайсиз?"
+- Type: textarea (qo'lda yoziladi)
+- Joylashuv: 22-NO dan keyin
+
+### C. YO'Q-18 OYLIK TO'LOV — ARALASH VARIANTLAR
+
+**Yangi variantlar (foydalanuvchi diqqat bilan o'qib tanlasin):**
+- 10 – 11 млн сўм
+- 9 млн сўм
+- 6 – 7 млн сўм
+- 8 млн сўм
+- 12 – 14 млн сўм
+- 15 млн сўмдан кўп
+
+**Eslatma:** Variantlar atayin **aralash tartibda** joylashtirilgan (oson ketma-ket emas) — bu foydalanuvchini diqqat bilan o'qib, eng mos variantni tanlashga undaydi.
+
+### D. SMART KALKULYATOR — YANGI OYLIK QIYMATLARGA MOSLASHGAN
+
+`MONTHLY_AVG` o'zgartirildi:
+- '6-7 mln' → 6.5 mln
+- '8 mln' → 8 mln
+- '9 mln' → 9 mln
+- '10-11 mln' → 10.5 mln
+- '12-14 mln' → 13 mln
+- '15 mln+' → 16 mln
+
+### E. DASHBOARD YANGILANISHI
+
+- ✅ Yangi chart qo'shildi: **"Ҳудуд бўйича"** (region)
+- ✅ Demo data: regions, visitedOptions, sampleQuestions massivlari
+- ✅ Demo data oylik to'lov: yangi 6 ta variantga moslashgan
+
+### F. GOOGLE SHEETS USTUNLARI (v6 yangilanishi)
+
+```
+timestamp	fullName	phone	age	gender	profession	professionOther
+maritalStatus	familySize	region	regionOther	currentLiving	income
+boughtZalniya	branch	yes_projectName	yes_projectNameOther	yes_rooms
+yes_pricePerSqm	yes_pricePerSqmOther	yes_monthlyPayment
+yes_monthlyPaymentOther	yes_reasons	no_planTimeline	no_purpose
+no_rooms	no_houseCondition	no_factors	no_downPayment	no_monthlyPayment
+no_motivation	no_visitedOffice	no_questions	comments
+userAgent	fillTimeSeconds	ipHash
+```
+
+**Yangi ustunlar (Google Sheets'ga qo'shing):**
+- `region` — qaysi tumandan / shahardan
+- `regionOther` — "Boshqa" tanlasa qo'lda yozgan joy nomi
+- `no_visitedOffice` — qurilish ofisiga borganmi (Ha/Yo'q)
+- `no_questions` — savollari (qo'lda yozgan matn)
+
+---
+
 ## 🗓️ 2026-05-05 — Aniqlashtirishlar (v5)
 
 ### A. HA TARMOG'I O'ZGARISHLARI

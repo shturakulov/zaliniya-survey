@@ -26,7 +26,7 @@ Vogzal temir yo'l orti (Zaliniya) hududida aholini qulay uy-joy bilan ta'minlash
 A1 katakka bosing va quyidagi matnni nusxalab joylashtiring (Tab bilan ajratilgan):
 
 ```
-timestamp	fullName	phone	age	gender	profession	professionOther	maritalStatus	familySize	currentLiving	income	boughtZalniya	branch	yes_projectName	yes_projectNameOther	yes_rooms	yes_pricePerSqm	yes_pricePerSqmOther	yes_monthlyPayment	yes_monthlyPaymentOther	yes_reasons	yes_problems	no_planTimeline	no_purpose	no_rooms	no_houseCondition	no_factors	no_downPayment	no_monthlyPayment	no_motivation	comments	userAgent	fillTimeSeconds	ipHash
+timestamp	fullName	phone	age	gender	profession	professionOther	maritalStatus	familySize	region	regionOther	currentLiving	income	boughtZalniya	branch	yes_projectName	yes_projectNameOther	yes_rooms	yes_pricePerSqm	yes_pricePerSqmOther	yes_monthlyPayment	yes_monthlyPaymentOther	yes_reasons	no_planTimeline	no_purpose	no_rooms	no_houseCondition	no_factors	no_downPayment	no_monthlyPayment	no_motivation	no_visitedOffice	no_questions	comments	userAgent	fillTimeSeconds	ipHash
 ```
 
 > 💡 Qulay tarzda nusxa olish uchun: avval `Ctrl+A` qilib hammasini belgilang, keyin matnni A1 katakka joylashtiring — ustunlarga avtomatik bo'linadi.

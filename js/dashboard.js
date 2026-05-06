@@ -202,8 +202,8 @@ function generateDemoData() {
   const branches = ['yes', 'no'];
   const houseConditions = ['Karobka', 'White Box', 'Tayyor ta\'mirlangan'];
   const rooms = ['1', '2', '3', '4+'];
-  const downPayments = ['50 mln gacha', '50-150 mln', '150-300 mln', '300-500 mln', '500 mln-1 mlrd', '1 mlrd+'];
-  const monthlies = ['6-8 mln', '9-11 mln', '12 mln+'];
+  const downPayments = ['50 mln gacha', '50-100 mln', '100-150 mln', '150-200 mln', '200 mln+'];
+  const monthlies = ['6-7 mln', '8 mln', '9 mln', '10-11 mln', '12-14 mln', '15 mln+'];
   const factors = ['Narx', 'Joylashuv', 'Quruvchi ishonchliligi', 'Infratuzilma', 'To\'lov shartlari'];
   const motivations = ['Ijara', 'Investitsiya', 'Katta oilamiz'];
   const timelines = ['Shoshilinch', '1-2 yil', 'Yo\'q'];
@@ -213,6 +213,16 @@ function generateDemoData() {
   const projects = ['Zuhal', 'Dargoh', 'Rail City', 'Nova House', 'Jahon House', 'Muborak TJM', 'Izmir (Global Avenue)', 'Orifon (Elite Building)', 'Tiffany', 'Shahriston', 'Afrosiyob TJM'];
   const pricesPerSqm = ['7-8 mln', '8-9 mln', '10-11 mln', '12 mln+'];
   const yesMonthlies = ['6-7 mln', '8-9 mln', '10-12 mln', '13 mln+'];
+  const regions = ['Samarqand shahri', 'Kattaqo\'rg\'on shahri', 'Bulung\'ur tumani', 'Jomboy tumani', 'Ishtixon tumani', 'Pastdarg\'om tumani', 'Samarqand tumani', 'Toyloq tumani', 'Urgut tumani', 'Payariq tumani'];
+  const visitedOptions = ['Ha', 'Yo\'q'];
+  const sampleQuestions = [
+    'Qurilish kechikadimi?',
+    'Hujjatlar qaysi tartibda beriladi?',
+    'To\'lov muddatini uzaytirish mumkinmi?',
+    'Loyihaning lisenziyasi bormi?',
+    'Sifat kafolati bormi?',
+    'Aksiyalar qachon bo\'ladi?',
+  ];
 
   const sampleComments = [
     'Yaxshi loyiha bo\'lsa, narxi qulay bo\'lsa qiziqaman',
@@ -238,8 +248,8 @@ function generateDemoData() {
       gender: Math.random() > 0.4 ? 'Erkak' : 'Ayol',
       profession: professions[Math.floor(Math.random() * professions.length)],
       income: incomes[Math.floor(Math.random() * incomes.length)],
+      region: regions[Math.floor(Math.random() * regions.length)],
       branch: branch,
-      contactPermission: Math.random() > 0.3 ? 'Ha' : 'Yo\'q',
     };
 
     if (branch === 'yes') {
@@ -259,6 +269,10 @@ function generateDemoData() {
       entry.no_motivation = motivations[Math.floor(Math.random() * motivations.length)];
       entry.no_planTimeline = timelines[Math.floor(Math.random() * timelines.length)];
       entry.no_purpose = purposes[Math.floor(Math.random() * purposes.length)];
+      entry.no_visitedOffice = visitedOptions[Math.floor(Math.random() * visitedOptions.length)];
+      if (Math.random() > 0.6) {
+        entry.no_questions = sampleQuestions[Math.floor(Math.random() * sampleQuestions.length)];
+      }
 
       // Multi-select
       const factorsCount = 1 + Math.floor(Math.random() * 3);
@@ -315,6 +329,12 @@ function renderCharts() {
   // 1. Yosh
   drawChart('chartAge', 'doughnut', countBy('age'), {
     legendPosition: 'right'
+  });
+
+  // 1b. Hudud (region)
+  drawChart('chartRegion', 'bar', countBy('region'), {
+    horizontal: true,
+    multiColor: true,
   });
 
   // 2. Daromad

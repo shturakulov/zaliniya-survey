@@ -141,9 +141,36 @@
         </div>
       </div>
 
-      <!-- 8. Hozirgi yashash -->
-      <div class="question" data-question="8" data-section="demographic">
+      <!-- 8. Qayerdansiz? (region) -->
+      <div class="question" data-question="region" data-section="demographic">
         <span class="question-number">08</span>
+        <h2 class="question-title">Қаердансиз?</h2>
+        <p class="question-hint">Самарқанд вилояти бўйича шаҳар ёки туманингизни танланг</p>
+        <div class="radio-group radio-group-2">
+          <label class="radio-card"><input type="radio" name="region" value="Samarqand shahri" required /><span class="radio-label">Самарқанд шаҳри</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Kattaqo'rg'on shahri" /><span class="radio-label">Каттақўрғон шаҳри</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Bulung'ur tumani" /><span class="radio-label">Булунғур тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Jomboy tumani" /><span class="radio-label">Жомбой тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Ishtixon tumani" /><span class="radio-label">Иштихон тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Kattaqo'rg'on tumani" /><span class="radio-label">Каттақўрғон тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Narpay tumani" /><span class="radio-label">Нарпай тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Nurobod tumani" /><span class="radio-label">Нуробод тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Oqdaryo tumani" /><span class="radio-label">Оқдарё тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Payariq tumani" /><span class="radio-label">Паярик тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Pastdarg'om tumani" /><span class="radio-label">Пастдарғом тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Paxtachi tumani" /><span class="radio-label">Пахтачи тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Samarqand tumani" /><span class="radio-label">Самарқанд тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Toyloq tumani" /><span class="radio-label">Тойлоқ тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Urgut tumani" /><span class="radio-label">Ургут тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Qo'shrabot tumani" /><span class="radio-label">Қўшработ тумани</span></label>
+          <label class="radio-card"><input type="radio" name="region" value="Boshqa" data-other="true" /><span class="radio-label">Бошқа</span></label>
+        </div>
+        <input type="text" name="regionOther" class="text-input other-input hidden" placeholder="Жойни ёзинг..." />
+      </div>
+
+      <!-- 9. Hozirgi yashash -->
+      <div class="question" data-question="8" data-section="demographic">
+        <span class="question-number">09</span>
         <h2 class="question-title">Ҳозир қаерда яшайсиз?</h2>
         <div class="radio-group radio-group-2">
           <label class="radio-card"><input type="radio" name="currentLiving" value="Ijarada" required /><span class="radio-label">Ижарада</span></label>
@@ -153,9 +180,9 @@
         </div>
       </div>
 
-      <!-- 9. Daromad -->
+      <!-- 10. Daromad -->
       <div class="question" data-question="9" data-section="demographic">
-        <span class="question-number">09</span>
+        <span class="question-number">10</span>
         <h2 class="question-title">Ойлик даромадингиз</h2>
         <p class="question-hint">Маълумотлар махфий сақланади</p>
         <div class="radio-group">
@@ -356,10 +383,14 @@
       <div class="question" data-question="18" data-section="no">
         <span class="question-number">18</span>
         <h2 class="question-title">Максимал ойлик тўлов қанча бўлиши мумкин?</h2>
-        <div class="radio-group">
-          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="6-8 mln" /><span class="radio-label">6 – 8 млн сўм</span></label>
-          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="9-11 mln" /><span class="radio-label">9 – 11 млн сўм</span></label>
-          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="12 mln+" /><span class="radio-label">12 млн сўмдан кўп</span></label>
+        <p class="question-hint">Диққат билан ўқиб танланг</p>
+        <div class="radio-group radio-group-2">
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="10-11 mln" /><span class="radio-label">10 – 11 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="9 mln" /><span class="radio-label">9 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="6-7 mln" /><span class="radio-label">6 – 7 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="8 mln" /><span class="radio-label">8 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="12-14 mln" /><span class="radio-label">12 – 14 млн сўм</span></label>
+          <label class="radio-card"><input type="radio" name="no_monthlyPayment" value="15 mln+" /><span class="radio-label">15 млн сўмдан кўп</span></label>
         </div>
       </div>
 
@@ -372,6 +403,24 @@
           <label class="radio-card"><input type="radio" name="no_motivation" value="Investitsiya" /><span class="radio-label">Инвестиция</span></label>
           <label class="radio-card"><input type="radio" name="no_motivation" value="Katta oilamiz" /><span class="radio-label">Катта оиламиз</span></label>
         </div>
+      </div>
+
+      <!-- 22-NO. Qurilish ofisiga borganmi -->
+      <div class="question" data-question="22" data-section="no">
+        <span class="question-number">22</span>
+        <h2 class="question-title">Уй олиш мақсадида қурилиш офисларига борганмисиз?</h2>
+        <div class="radio-group radio-group-2">
+          <label class="radio-card"><input type="radio" name="no_visitedOffice" value="Ha" /><span class="radio-label">Ҳа, борганман</span></label>
+          <label class="radio-card"><input type="radio" name="no_visitedOffice" value="Yo'q" /><span class="radio-label">Йўқ, бормаганман</span></label>
+        </div>
+      </div>
+
+      <!-- 23-NO. Qanday savollarga javob izlaydi -->
+      <div class="question" data-question="23" data-section="no">
+        <span class="question-number">23</span>
+        <h2 class="question-title">Уй харид қилишдан олдин қандай саволларга жавоб топишни хоҳлайсиз?</h2>
+        <p class="question-hint">Ўзингизни қизиқтирган саволларни ёзинг (ихтиёрий)</p>
+        <textarea name="no_questions" class="textarea-input" placeholder="Масалан: қурувчининг ҳужжатлари, тўлов шартлари, лойиҳа муддати..." rows="5"></textarea>
       </div>
 
       <!-- ============ БОСҚИЧ 3: ЯКУНИЙ ============ -->

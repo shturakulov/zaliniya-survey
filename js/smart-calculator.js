@@ -37,9 +37,12 @@ const DOWN_PAYMENT_AVG = {
 
 // Maksimal oylik (mln so'm) - o'rtachasi
 const MONTHLY_AVG = {
-  '6-8 mln': 7,
-  '9-11 mln': 10,
-  '12 mln+': 14,
+  '6-7 mln': 6.5,
+  '8 mln': 8,
+  '9 mln': 9,
+  '10-11 mln': 10.5,
+  '12-14 mln': 13,
+  '15 mln+': 16,
 };
 
 // ============= TAVSIYA YARATISH =============
