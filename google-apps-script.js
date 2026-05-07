@@ -289,6 +289,7 @@ function ensureHeaders() {
     'yes_reasons', 'yes_problems',
     'no_planTimeline', 'no_purpose', 'no_rooms', 'no_houseCondition',
     'no_factors', 'no_downPayment', 'no_monthlyPayment', 'no_motivation',
+    'no_visitedOffice', 'no_questions',
     'comments', 'userAgent', 'fillTimeSeconds', 'ipHash'
   ];
 
